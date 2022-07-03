@@ -1,3 +1,22 @@
+<?php
+// connect to db
+require '../koneksi/koneksi.php';
+
+
+if( isset($_POST["submit"]) ) {
+    
+    //
+    if( input($_POST) > 0 ) {
+        echo "Data successfully added";
+    } else {
+        echo "Failed to input data";
+    }
+
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,6 +28,7 @@
         <title>PetshopQu</title>
 
         <!-- IMPORT FONT & CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -92,7 +112,7 @@
 
                     <!-- Account Footer Left
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as: <?php echo $_SESSION['username']; ?></div>
+                        <div class="small">Logged in as:</div>
                         Start Bootstrap
                     </div> -->
                 </nav>
@@ -101,41 +121,10 @@
             <!-- MAIN / Dashboard Content -->
             <div id="layoutSidenav_content">
             <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
+            <div class="container-fluid px-4">
+                        <h1 class="mt-4">Input Product</h1>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Product</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="../admin/product.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">User</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="../admin/user.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Order List</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <!-- CONTAINER CARD -->
@@ -146,6 +135,54 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- TABLE -->
+                    <div class="card mb-4">
+                    <div class="container">
+                    <form action="" method="post"> 
+                        <div class="row">
+                            <div class="col">
+                            <label for="image">Image</label>
+                            <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="image">
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                            <label for="product_name">Product Name</label>
+                            <div class="row">
+                            <input type="text" name="product_name" id="product_name">
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                            <br>
+                            <label for="detail_product">Detail</label>
+                            <div class="row">
+                            <input type="text" name="detail_product" id="detail_product">
+                            </div>
+                            <div class="col">
+                                <br>
+                            <label for="quantity">Quantity</label>
+                            <div class="row">
+                            <input type="text" name="quantity" id="quantity">
+                            </div>
+                            <div class="col">
+                                <br>
+                            <label for="price">Price</label>
+                            <div class="row">
+                            <input type="text" name="price" id="price">
+                            </div>
+                        </div></div></div></div>
+                        </div>
+                        </div>
+                        <br>
+                            <button type="submit" name="submit" id="submit">Input Product </button>
+                            </form>
+                                    </tbody>
+                                </table>
+                            </div>
+
                 </main>
 
 
