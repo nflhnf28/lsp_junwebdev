@@ -70,12 +70,12 @@ function edit($data) {
 
     // query insert data
     $query = " UPDATE product SET 
-                    'image' = '$image',
-                    product_name = '$product_name',
-                    detail_product = '$detail_product',
-                    quantity = '$quantity',
-                    price = '$price'
-                    WHERE id_product = $id_product
+                image = '$image',
+                product_name = '$product_name',
+                detail_product = '$detail_product',
+                quantity = '$quantity',
+                price = '$price'
+                WHERE id_product = $id_product
                     ";
 
     mysqli_query($koneksi, $query);
