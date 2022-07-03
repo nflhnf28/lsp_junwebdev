@@ -11,7 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background: linear-gradient(135deg, #203e38, #0f9a7e);
 }
 .container{
     max-width: 700px;
@@ -36,7 +36,7 @@ body{
     height: 3px;
     width: 650px;
     border-radius: 5px;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background: linear-gradient(135deg, #203e38, #13c29f);
 }
 .content form .user-details{
     display: flex;
@@ -66,7 +66,7 @@ form .input-box span.details{
 }
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
-border-color: #9b59b6;
+border-color: #13c29f;
 }
 
 

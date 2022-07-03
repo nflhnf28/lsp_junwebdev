@@ -42,8 +42,7 @@
               <button class="btn nav-link dropdown-toggle" href="#" type="button" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-circle" style="font-size: 35px;"></i></button>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/petshopqu/login/login.php">Sign in </a></li>
-                <li><a class="dropdown-item" href="/petshopqu/login/register.php">Register </a></li>
+              <li><a class="dropdown-item" href="../login/logout.php">Logout</a></li>
               </ul>
             </li>
           </form>

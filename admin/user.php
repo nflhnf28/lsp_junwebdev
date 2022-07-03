@@ -1,21 +1,9 @@
 <?php
 // Connect to MySQL database
 require '../koneksi/koneksi.php';
+
 $user = query("SELECT * FROM user");
 
-// // Connect to MySQL database
-// $pdo = pdo_connect_mysql();
-// // Get the page via GET request (URL param: page), if non exists default the page to 1
-// $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
-// // Number of records to show on each page
-// $records_per_page = 5;
-
-
-// // Prepare the SQL statement and get records from our contacts table, LIMIT will determine the page
-// $sql->prepare('SELECT * FROM user ORDER BY id');
-
-// // Fetch the records so we can display them in our template.
-// $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -47,7 +35,7 @@ $user = query("SELECT * FROM user");
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
             <!-- Account Form-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             </form>
 
             <!-- NAVBAR -->
@@ -80,7 +68,6 @@ $user = query("SELECT * FROM user");
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="../admin/product.php">Product</a>
                                     <a class="nav-link" href="../admin/user.php">User</a>
-                                    <a class="nav-link" href="../admin/order_list.php">Order list</a>
                                 </nav>
                             </div>
                             
@@ -125,7 +112,7 @@ $user = query("SELECT * FROM user");
             <div id="layoutSidenav_content">
             <main>
             <div class="container-fluid px-4">
-                        <h1 class="mt-4">Product</h1>
+                        <h1 class="mt-4">User</h1>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                         </div>
@@ -142,43 +129,41 @@ $user = query("SELECT * FROM user");
                     <!-- TABLE -->
                     
 
-                    <div class="content read">
-                        <table>
-                            <thead>
-                            <tr>
-                                <td>#</td>
-                                <td>Full name</td>
-                                <td>Username</td>
-                                <td>Email</td>
-                                <td>Address</td>
-                                <td>Phone</td>
-                                <td></td>
-                            </tr>
-                            </thead>
-                            <tbody>
+                    <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Full Name</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Address</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Full Name</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Address</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
 
-                <?php $i = 1; ?>
-                <?php foreach ($user as $row): ?>
-                    <tr>
-                    <td><?= $i; ?></td>
-                    <td><?=$row['username']?></td>
-                    <td><?=$row['email']?></td>
-                    <td><?=$row['address']?></td>
-                    <td><?=$row['phone']?></td>
-                </tr>
-                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($user as $row): ?>
+                                        <tr>
+                                            <td><?=$row['full_name']?></td>
+                                            <td><?=$row['username']?></td>
+                                            <td><?=$row['email']?></td>
+                                            <td><?=$row['address']?></td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
 
 
-            <!-- <div class="pagination">
-            <?php if ($page > 1): ?>
-            <a href="read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
-            <?php endif; ?>
-            <?php if ($page*$records_per_page < $num_contacts): ?>
-                <a href="read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
-                <?php endif; ?>
-            </div> -->
+            </div> 
         </div>
                 </main>
 

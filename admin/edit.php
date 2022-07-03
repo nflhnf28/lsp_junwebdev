@@ -1,8 +1,36 @@
 <?php
-// koneksi db
+// connect to db
 require '../koneksi/koneksi.php';
-$product = query("SELECT * FROM product");
 
+// $id = $_GET['id'];
+// $query_mysql = mysqli_query($koneksi, "SELECT * FROM product 
+//     WHERE id_product='$id'")or die(mysql_error());
+// 	$nomor = 1;
+// 	while($data = mysqli_fetch_array($query_mysql)) {
+
+// ambil data di URL 
+$id = $_GET["id"];
+
+// query data product berdasarkan ID product
+
+$product = query("SELECT * FROM product WHERE id_product = $id")[0];
+
+
+if( isset($_POST["submit"]) ) {
+    
+    //
+    if( edit($_POST) > 0 ) {
+        echo "<script>
+        window.location.href='product.php';
+        alert('Failed edit a product');
+        </script>";
+    } else{
+        echo "<script>
+        window.location.href='product.php';
+        alert('Successfully to edit a product');
+        </script>";
+    }
+}
 
 ?>
 
@@ -17,6 +45,7 @@ $product = query("SELECT * FROM product");
         <title>PetshopQu</title>
 
         <!-- IMPORT FONT & CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -32,7 +61,7 @@ $product = query("SELECT * FROM product");
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
             <!-- Account Form-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             </form>
 
             <!-- NAVBAR -->
@@ -109,7 +138,7 @@ $product = query("SELECT * FROM product");
             <div id="layoutSidenav_content">
             <main>
             <div class="container-fluid px-4">
-                        <h1 class="mt-4">Product</h1>
+                        <h1 class="mt-4">Edit Product</h1>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                         </div>
@@ -125,50 +154,54 @@ $product = query("SELECT * FROM product");
 
                     <!-- TABLE -->
                     <div class="card mb-4">
-                            <div class="card-header">
-                            <a href="input.php" class="input_product">Input Product</a>
+                    <div class="container">
+                    <form action="" method="post"> 
+                        <div class="row">
+                            <div class="col">
+                            <input type="hidden" name="id_product" value="<?= $product["id_product"];?>">
+                            <label for="image">Image</label>
+                            <div class="input-group mb-3">
+                            <input type="file" name="image" class="form-control" 
+                            id="image" value="<?= $product["image"];?>">
                             </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>Product Name</th>
-                                            <th>Detail</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Image</th>
-                                            <th>Product Name</th>
-                                            <th>Detail</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-
-                                    <?php $i = 1; ?>
-                                    <?php foreach ($product as $row): ?>
-                                        <tr>
-                                            <td><img src="../images/<?= $row["image"]; ?>" width="100"></td>
-                                            <td><?=$row['product_name']?></td>
-                                            <td><?=$row['detail_product']?></td>
-                                            <td><?=$row['quantity']?></td>
-                                            <td><?=$row['price']?></td>
-                                            <td>
-                                                <a href="edit.php?id=<?= $row["id_product"]; ?>">Edit</a>
-                                                <a href="delete.php?id=<?= $row["id_product"]; ?>" 
-                                                onclick="return confirm ('Delete?');">Delete</a>
-                                            </td>
-                                        </tr>
-                                        <?php $i++; ?>
-                                        <?php endforeach; ?>
-                                    </tbody>
+                            </div>
+                            <div class="row">
+                            <div class="col">
+                            <label for="product_name">Product Name</label>
+                            <div class="row">
+                            <input type="text" name="product_name" 
+                            id="product_name" value="<?= $product["product_name"];?>">
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                            <br>
+                            <label for="detail_product">Detail</label>
+                            <div class="row">
+                            <input type="text" name="detail_product" 
+                            id="detail_product" value="<?= $product["detail_product"];?>">
+                            </div>
+                            <div class="col">
+                                <br>
+                            <label for="quantity">Quantity</label>
+                            <div class="row">
+                            <input type="text" name="quantity" 
+                            id="quantity" value="<?= $product["quantity"];?>">
+                            </div>
+                            <div class="col">
+                                <br>
+                            <label for="price">Price</label>
+                            <div class="row">
+                            <input type="text" name="price" 
+                            id="price" value="<?= $product["price"];?>">
+                            </div>
+                        </div></div></div></div>
+                        </div>
+                        </div>
+                        <br>
+                            <button type="submit" name="submit" id="submit">Edit Product </button>
+                            </form>
+                                </tbody>
                                 </table>
                             </div>
 

@@ -7,12 +7,12 @@ if ( delete($id) > 0 ) {
     echo "
             <script>
                 alert('Data successfully deleted!');
-                document.location.href = 'index.php';
+                document.location.href = 'product.php';
             </script>";
 } else "
             <script>
             alert('Data failed to be deleted!');
-            document.location.href = 'index.php';
+            document.location.href = 'product.php';
             </script>"; {
     
 }

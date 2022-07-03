@@ -1,12 +1,13 @@
 <?php
 require '../koneksi/koneksi.php';
 
-if( isset($_POST["register"])) {
-
-    if(register($_POST) > 0 )  {
+if( isset($_POST["register"]) ) {
+    
+    if (register($_POST) > 0) {
         echo "<script>
-                alert('New user has been created!');
-            </script>";
+        window.location.href='login.php';
+        alert('User successfully registered');
+        </script>";
     } else {
         echo mysqli_error($koneksi);
     }
@@ -37,23 +38,23 @@ if( isset($_POST["register"])) {
         </div>
 
         <div class="input-box">
-            <span class="details">Address</span>
-            <input type="text" name="address" placeholder="Input address" required> <br>
-        </div>
-
-        <div class="input-box">
-            <span class="details">Email</span>
-            <input type="text" name="email" placeholder="Input email" required>
-        </div>
-
-        <div class="input-box">
-            <label for="details">Username</label>
+            <span class="details">Username</span>
             <input type="text" name="username" placeholder="Input username" required> <br>
         </div>
 
         <div class="input-box">
-            <label for="details">Password</label>
+            <span class="details">Password</span>
             <input type="password" name="password" placeholder="Input password" required>
+        </div>
+
+        <div class="input-box">
+            <label for="details">Email</label>
+            <input type="text" name="email" placeholder="Input email" required> <br>
+        </div>
+
+        <div class="input-box">
+            <label for="details">Address</label>
+            <input type="text" name="address" placeholder="Input address" required>
         </div>
 
         <div class="input-box">

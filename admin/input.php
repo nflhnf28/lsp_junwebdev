@@ -7,12 +7,13 @@ if( isset($_POST["submit"]) ) {
     
     //
     if( input($_POST) > 0 ) {
-        echo "Data successfully added";
+        echo "<script>
+        window.location.href='product.php';
+        alert('Successfully insert a product');
+        </script>";
     } else {
-        echo "Failed to input data";
+        echo mysqli_error($koneksi);
     }
-
-
 }
 
 ?>
@@ -77,7 +78,6 @@ if( isset($_POST["submit"]) ) {
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="../admin/product.php">Product</a>
                                     <a class="nav-link" href="../admin/user.php">User</a>
-                                    <a class="nav-link" href="../admin/order_list.php">Order list</a>
                                 </nav>
                             </div>
                             
@@ -144,7 +144,7 @@ if( isset($_POST["submit"]) ) {
                             <div class="col">
                             <label for="image">Image</label>
                             <div class="input-group mb-3">
-                            <input type="file" class="form-control" id="image">
+                            <input type="file" name="image" class="form-control" id="image">
                             </div>
                             </div>
                             <div class="row">
@@ -179,7 +179,7 @@ if( isset($_POST["submit"]) ) {
                         <br>
                             <button type="submit" name="submit" id="submit">Input Product </button>
                             </form>
-                                    </tbody>
+                                </tbody>
                                 </table>
                             </div>
 

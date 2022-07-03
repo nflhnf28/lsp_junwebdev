@@ -20,10 +20,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link active" aria-current="page" href="../homepage/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Product/">Product</a>
+                <a class="nav-link" href="../Product/">Product</a>
               </li>
             </ul>
           </div>
@@ -34,8 +34,7 @@
               <button class="btn nav-link dropdown-toggle" href="#" type="button" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-person-circle" style="font-size: 35px;"></i></button>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/Account/">Account </a></li>
-                <li><a class="dropdown-item" href="/Logout/">Logout </a></li>
+              <li><a class="dropdown-item" href="../login/logout.php">Logout</a></li>
               </ul>
             </li>
           </form>
@@ -43,7 +42,18 @@
         </div>
       </nav>
       <!-- NAV SECTION END -->
-      
+
+      <!-- CONTENT -->
+      <div class="container">
+        <div class="row row-cols-4">
+        <?php foreach ($product as $row): ?>
+          <div class="col">Column</div>
+          <div class="col">Column</div>
+          <div class="col">Column</div>
+          <div class="col">Column</div>
+        </div>
+      </div>
+
 
 </body>
 </html>
