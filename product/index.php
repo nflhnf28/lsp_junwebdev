@@ -1,3 +1,9 @@
+<?php
+require '../koneksi/koneksi.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,11 +52,11 @@
       <!-- CONTENT -->
       <div class="container">
         <div class="row row-cols-4">
-        <?php foreach ($product as $row): ?>
           <div class="col">Column</div>
           <div class="col">Column</div>
           <div class="col">Column</div>
           <div class="col">Column</div>
+        
         </div>
       </div>
 
