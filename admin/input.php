@@ -177,7 +177,7 @@ if( isset($_POST["submit"]) ) {
                         </div>
                         </div>
                         <br>
-                            <button type="submit" name="submit" id="submit">Input Product </button>
+                            <button type="submit" name="submit" id="submit" class="btn btn-primary">Input Product </button>
                             </form>
                                 </tbody>
                                 </table>

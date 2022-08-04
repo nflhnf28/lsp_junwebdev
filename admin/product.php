@@ -126,7 +126,7 @@ $product = query("SELECT * FROM product");
                     <!-- TABLE -->
                     <div class="card mb-4">
                             <div class="card-header">
-                            <a href="input.php" class="input_product">Input Product</a>
+                            <a href="input.php" class="btn btn-primary ">Input Product</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">

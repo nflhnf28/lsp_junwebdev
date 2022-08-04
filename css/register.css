@@ -5,13 +5,14 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
+
 body{
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background: linear-gradient(135deg, #203e38, #0f9a7e);
+    background: linear-gradient(135deg, #057968, #228a5a);
 }
 .container{
     max-width: 700px;
